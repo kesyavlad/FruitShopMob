@@ -1,36 +1,74 @@
 import React from 'react';
-import {Image, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import SignIn from './SignIn/SignIn';
 import Home from './Home/Home';
 
-const Tab = createMaterialBottomTabNavigator();
+import SvgHome from '../components/SvgComponents/SvgHome';
+import SvgBell from '../components/SvgComponents/SvgBell';
+import SvgPlus from '../components/SvgComponents/SvgPlus';
+import SvgShopingCart from '../components/SvgComponents/SvgShopingCart';
+import SvgSettings from '../components/SvgComponents/SvgSettings';
+import CreatAccaunt from './CreatAccaunt/CreatAccaunt';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Shop from './Shop';
+
+const Tab = createBottomTabNavigator();
 const MainMenu = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarShowLabel: false,
+          tabBarActiveTintColor: 'none',
+          headerShown: false,
+          tabBarStyle: {
+            height: 90,
+            shadowColor: 'rgba(0, 0, 0, 0.40)',
+            shadowOpacity: 1,
+            shadowRadius: 7,
+          },
+        }}>
         <Tab.Screen
-          name="Home"
+          name="home"
           component={Home}
           options={{
-            tabBarIcon: () => (
-              <Image
-                source={require('../assets/image/Apple.png')} //to constant
-                style={styles.image}
-              />
+            tabBarIcon: ({focused}) => (
+              <SvgHome stroke={focused ? '#F1C40F' : 'silver'} />
             ),
           }}
         />
         <Tab.Screen
-          name="Characters"
+          name="bell"
           component={SignIn}
           options={{
-            tabBarIcon: () => (
-              <Image
-                source={require('../assets/image/Mix.png')} //to constant
-                style={styles.image}
-              />
+            tabBarIcon: ({focused}) => (
+              <SvgBell stroke={focused ? '#F1C40F' : 'silver'} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="plus"
+          component={CreatAccaunt}
+          options={{
+            tabBarIcon: () => <SvgPlus style={styles.plus} />,
+          }}
+        />
+        <Tab.Screen
+          name="shopingCart"
+          component={Shop}
+          options={{
+            tabBarIcon: ({focused}) => (
+              <SvgShopingCart stroke={focused ? '#F1C40F' : 'silver'} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="settings"
+          component={SignIn}
+          options={{
+            tabBarIcon: ({focused}) => (
+              <SvgSettings stroke={focused ? '#F1C40F' : 'silver'} />
             ),
           }}
         />
@@ -39,18 +77,8 @@ const MainMenu = () => {
   );
 };
 const styles = StyleSheet.create({
-  image: {
-    width: 30,
-    height: 30,
-    borderRadius: 20,
-  },
-  centerImage: {
-    width: 55,
-    height: 55,
-    borderRadius: 25,
-    marginBottom: 20,
-    borderColor: 'green',
-    borderWidth: 1,
+  plus: {
+    bottom: 15,
   },
 });
 

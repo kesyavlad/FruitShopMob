@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Card from '../../components/Card';
 import {Fruits} from '../../assets/infoFruit/Fruts';
+import SvgSearch from '../../components/SvgComponents/SvgSearch';
 
 const Home = () => {
   return (
@@ -24,13 +25,16 @@ const Home = () => {
         </View>
         <Image source={require('../../assets/image/User.png')} />
       </View>
-      <TextInput
-        placeholder="Search"
-        placeholderTextColor="#C0C0C0"
-        style={styles.input}
-      />
+      <View style={styles.searchInput}>
+        <TextInput
+          placeholder="Search"
+          placeholderTextColor="#C0C0C0"
+          style={styles.input}
+        />
+        <SvgSearch style={styles.svg} width={25} height={25} />
+      </View>
       <ScrollView>
-        <View style={styles.test}>
+        <View style={styles.list}>
           {Fruits.map(fruit => (
             <Card
               key={fruit.id}
@@ -71,6 +75,7 @@ const styles = StyleSheet.create({
     fontWeight: 600,
   },
   input: {
+    width: '100%',
     shadowColor: 'rgba(0, 0, 0, 0.25)',
     shadowOffset: {width: 3, height: 7},
     shadowOpacity: 0.8,
@@ -81,11 +86,19 @@ const styles = StyleSheet.create({
     paddingLeft: 62,
     paddingTop: 13,
     paddingBottom: 14,
+    paddingRight: 50,
   },
-  test: {
+  list: {
     width: '110%',
     flexDirection: 'row',
     flexWrap: 'wrap',
+  },
+  searchInput: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  svg: {
+    marginLeft: -50,
   },
 });
 

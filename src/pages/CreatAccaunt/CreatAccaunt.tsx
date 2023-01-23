@@ -44,15 +44,17 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     flexDirection: 'column',
-    alignItems: 'center',
     justifyContent: 'space-between',
     paddingTop: '15%',
+    marginRight: 30,
+    marginLeft: 30,
   },
   boxInput: {
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
     marginTop: 100,
+    width: '100%',
   },
   CreateAcc: {
     paddingBottom: 30,

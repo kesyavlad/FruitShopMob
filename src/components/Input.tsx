@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {StyleSheet, TextInput} from 'react-native';
 
 interface InterfaceInput {
   confidential: boolean;
@@ -15,18 +15,16 @@ const Input: FC<InterfaceInput> = ({
   setInput,
 }) => {
   return (
-    <View>
-      <TextInput
-        style={styles.input}
-        placeholder={placeholder}
-        secureTextEntry={confidential}
-        placeholderTextColor={'rgba(0, 0, 0, 0.5)'}
-        value={input}
-        onChangeText={e => {
-          setInput(e);
-        }}
-      />
-    </View>
+    <TextInput
+      style={styles.input}
+      placeholder={placeholder}
+      secureTextEntry={confidential}
+      placeholderTextColor={'rgba(0, 0, 0, 0.5)'}
+      value={input}
+      onChangeText={e => {
+        setInput(e);
+      }}
+    />
   );
 };
 
@@ -37,7 +35,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingVertical: 20,
     paddingLeft: 42,
-    width: 354,
+    width: '100%',
     height: 66,
     marginTop: 36,
   },

@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   appButtonContainer: {
     backgroundColor: '#F1C40F',
     borderRadius: 30,
-    width: 354,
+    width: '100%',
   },
   appButtonText: {
     color: '#FFFFFF',
