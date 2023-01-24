@@ -1,35 +1,29 @@
-import React, {FC} from 'react';
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {StyleSheet, Text} from 'react-native';
 import SvgBack from '../components/SvgComponents/SvgBack';
-import SvgSearch from '../components/SvgComponents/SvgSearch';
-import CustomButton from '../components/CustomButton';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import CardShop from '../components/CardShop';
 
-interface ShopInterface {
-  img: string;
-  name: string;
-  price: string;
-}
+const Stack = createNativeStackNavigator();
 
-const Shop: FC<ShopInterface> = ({img, name, price}) => {
+const Shop = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <SvgBack />
-        <Text style={styles.headerText}>Shop</Text>
-        <SvgSearch />
-      </View>
-      <View style={styles.card}>
-        <View style={styles.image}>
-          <Image
-            source={require('../assets/image/Apple.png')}
-            style={styles.imageSize}
-          />
-        </View>
-        <Text>{name}</Text>
-        <Text>${price} US</Text>
-      </View>
-      <CustomButton title={'Add to Card'} />
-    </SafeAreaView>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="CardShop"
+        component={CardShop}
+        options={({navigation}) => ({
+          headerTitle: () => <Text style={styles.headerText}> Shop</Text>,
+          headerLeft: () => (
+            <SvgBack
+              onPress={() => {
+                navigation.goBack();
+              }}
+            />
+          ),
+        })}
+      />
+    </Stack.Navigator>
   );
 };
 

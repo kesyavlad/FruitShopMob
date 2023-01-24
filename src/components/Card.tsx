@@ -9,7 +9,7 @@ interface Card {
 
 const Card: FC<Card> = ({img, name, price}) => {
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={() => {}}>
       <Image source={img} style={styles.image} />
       <View style={styles.description}>
         <Text style={styles.textName}>{name}</Text>
