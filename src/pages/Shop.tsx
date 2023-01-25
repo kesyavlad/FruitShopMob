@@ -4,11 +4,13 @@ import SvgBack from '../components/SvgComponents/SvgBack';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CardShop from '../components/CardShop';
 import {useRoute} from '@react-navigation/native';
+import Cart from './Cart';
 
 const Stack = createNativeStackNavigator();
 
 const Shop = () => {
   const route = useRoute();
+
   const {img, fruitName, price} = route.params;
   return (
     <Stack.Navigator>
@@ -28,43 +30,29 @@ const Shop = () => {
           ),
         })}
       />
+      <Stack.Screen
+        name="Cart"
+        component={Cart}
+        options={({navigation}) => ({
+          headerTitle: () => <Text style={styles.headerText}>Cart</Text>,
+          headerLeft: () => (
+            <SvgBack
+              onPress={() => {
+                navigation.goBack();
+              }}
+            />
+          ),
+        })}
+      />
     </Stack.Navigator>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'column',
-    marginLeft: 30,
-    marginRight: 30,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
   headerText: {
     color: '#F1C40F',
     fontWeight: '700',
     fontSize: 22,
-  },
-  card: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    height: '80%',
-  },
-  image: {
-    width: 258,
-    height: 258,
-    borderRadius: 10,
-    backgroundColor: '#fff',
-    shadowColor: 'rgba(0, 0, 0, 0.25)',
-    shadowOffset: {width: 0, height: 6},
-    shadowOpacity: 0.8,
-    shadowRadius: 3,
-  },
-  imageSize: {
-    width: '100%',
   },
 });
 

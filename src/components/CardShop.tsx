@@ -10,6 +10,7 @@ import {
 import CustomButton from './CustomButton';
 import SvgDown from './SvgComponents/SvgDown';
 import SvgUp from './SvgComponents/SvgUp';
+import {useNavigation} from '@react-navigation/native';
 interface card {
   fruitName: string;
   price: string;
@@ -17,6 +18,7 @@ interface card {
 }
 
 const CardShop: FC<card> = ({fruitName, price, img}) => {
+  const navigation = useNavigation();
   const [counter, setConter] = useState(1);
   const clickDown = () => {
     if (counter > 1) {
@@ -28,6 +30,12 @@ const CardShop: FC<card> = ({fruitName, price, img}) => {
     setConter(counter + 1);
   };
   const addFruit = () => {
+    navigation.navigate('Cart', {
+      counter,
+      price,
+      img,
+      fruitName,
+    });
     setConter(1);
   };
   return (
