@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomSwiper from '../../components/CustomSwiper';
+import CustomSwiper from '../components/CustomSwiper';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 const Information = () => {

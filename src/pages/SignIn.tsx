@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import HeaderText from '../../components/HeaderText';
-import Input from '../../components/Input';
-import CustomButton from '../../components/CustomButton';
+import HeaderText from '../components/HeaderText';
+import Input from '../components/Input';
+import CustomButton from '../components/CustomButton';
 
 const SignIn = () => {
   const [inputEmail, setInputEmail] = useState('');

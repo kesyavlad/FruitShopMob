@@ -8,21 +8,21 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import Card from '../../components/CardFruit';
-import {Fruits} from '../../assets/infoFruit/Fruts';
-import SvgSearch from '../../components/SvgComponents/SvgSearch';
+import Card from '../components/CardFruit';
+import {Fruits} from '../assets/infoFruit/Fruts';
+import SvgSearch from '../components/SvgComponents/SvgSearch';
 const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.logo}>
           <Image
-            source={require('../../assets/image/Logo.png')}
+            source={require('../assets/image/Logo.png')}
             style={styles.image}
           />
           <Text style={styles.textHeader}>BestFruitShop</Text>
         </View>
-        <Image source={require('../../assets/image/User.png')} />
+        <Image source={require('../assets/image/User.png')} />
       </View>
       <View style={styles.searchInput}>
         <TextInput

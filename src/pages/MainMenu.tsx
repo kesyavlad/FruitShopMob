@@ -1,15 +1,15 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import SignIn from './SignIn/SignIn';
-import Home from './Home/Home';
+import SignIn from './SignIn';
+import Home from './Home';
 
 import SvgHome from '../components/SvgComponents/SvgHome';
 import SvgBell from '../components/SvgComponents/SvgBell';
 import SvgPlus from '../components/SvgComponents/SvgPlus';
 import SvgShopingCart from '../components/SvgComponents/SvgShopingCart';
 import SvgSettings from '../components/SvgComponents/SvgSettings';
-import CreatAccaunt from './CreatAccaunt/CreatAccaunt';
+import CreatAccaunt from './CreatAccaunt';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Shop from './Shop';
 

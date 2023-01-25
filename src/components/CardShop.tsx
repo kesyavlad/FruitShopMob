@@ -27,6 +27,9 @@ const CardShop: FC<card> = ({fruitName, price, img}) => {
   const clickUp = () => {
     setConter(counter + 1);
   };
+  const addFruit = () => {
+    setConter(1);
+  };
   return (
     <SafeAreaView style={styles.content}>
       <View style={styles.imageBox}>
@@ -45,7 +48,7 @@ const CardShop: FC<card> = ({fruitName, price, img}) => {
         </View>
         <Text style={styles.price}>${price} US</Text>
       </View>
-      <CustomButton title={'Add Cart'} />
+      <CustomButton title={'Add Cart'} func={addFruit} />
     </SafeAreaView>
   );
 };

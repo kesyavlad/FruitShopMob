@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Button, SafeAreaView, StyleSheet, View} from 'react-native';
-import HeaderText from '../../components/HeaderText';
-import Input from '../../components/Input';
-import CustomButton from '../../components/CustomButton';
+import HeaderText from '../components/HeaderText';
+import Input from '../components/Input';
+import CustomButton from '../components/CustomButton';
 
 const CreatAccaunt = () => {
   const [inputEmail, setInputEmail] = useState('');
