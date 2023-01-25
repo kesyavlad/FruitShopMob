@@ -1,15 +1,26 @@
 import React, {FC} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-interface Card {
+interface CardFruit {
+  id?: number;
   img: string;
   name: string;
   price: string;
 }
 
-const Card: FC<Card> = ({img, name, price}) => {
+const Card: FC<CardFruit> = ({img, name, price}) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.card} onPress={() => {}}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() =>
+        navigation.navigate('shopingCart', {
+          img,
+          fruitName: name,
+          price: price,
+        })
+      }>
       <Image source={img} style={styles.image} />
       <View style={styles.description}>
         <Text style={styles.textName}>{name}</Text>

@@ -3,17 +3,22 @@ import {StyleSheet, Text} from 'react-native';
 import SvgBack from '../components/SvgComponents/SvgBack';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CardShop from '../components/CardShop';
+import {useRoute} from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
 
 const Shop = () => {
+  const route = useRoute();
+  const {img, fruitName, price} = route.params;
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="CardShop"
-        component={CardShop}
+        children={() => (
+          <CardShop fruitName={fruitName} price={price} img={img} />
+        )}
         options={({navigation}) => ({
-          headerTitle: () => <Text style={styles.headerText}> Shop</Text>,
+          headerTitle: () => <Text style={styles.headerText}>Shop</Text>,
           headerLeft: () => (
             <SvgBack
               onPress={() => {

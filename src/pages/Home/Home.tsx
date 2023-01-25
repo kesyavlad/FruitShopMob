@@ -8,10 +8,9 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import Card from '../../components/Card';
+import Card from '../../components/CardFruit';
 import {Fruits} from '../../assets/infoFruit/Fruts';
 import SvgSearch from '../../components/SvgComponents/SvgSearch';
-
 const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
@@ -37,6 +36,7 @@ const Home = () => {
         <View style={styles.list}>
           {Fruits.map(fruit => (
             <Card
+              id={fruit.id}
               key={fruit.id}
               img={fruit.image}
               name={fruit.name}
