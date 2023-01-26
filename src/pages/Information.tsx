@@ -1,12 +1,18 @@
 import React from 'react';
 import CustomSwiper from '../components/CustomSwiper';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const Information = () => {
+  const navigation = useNavigation();
   return (
     <>
       <CustomSwiper />
-      <TouchableOpacity style={styles.opacity}>
+      <TouchableOpacity
+        style={styles.opacity}
+        onPress={() => {
+          navigation.navigate('MainMenu');
+        }}>
         <Text style={styles.nextButton}>Next</Text>
       </TouchableOpacity>
     </>

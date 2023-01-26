@@ -10,8 +10,10 @@ import {
 import HeaderText from '../components/HeaderText';
 import Input from '../components/Input';
 import CustomButton from '../components/CustomButton';
+import {useNavigation} from '@react-navigation/native';
 
 const SignIn = () => {
+  const navigation = useNavigation();
   const [inputEmail, setInputEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
   return (
@@ -39,7 +41,13 @@ const SignIn = () => {
         </View>
       </View>
       <CustomButton title={'Sign In'} />
-      <Button title="Sign in menu" color="#F1C40F" />
+      <Button
+        title="Sign in menu"
+        color="#F1C40F"
+        onPress={() => {
+          navigation.navigate('Information');
+        }}
+      />
     </SafeAreaView>
   );
 };

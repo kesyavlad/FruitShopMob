@@ -16,6 +16,7 @@ const Cart = () => {
   const {img, price, counter, fruitName} = route.params;
   const deliveryPrice = 7.51;
   const result = price * counter;
+
   return (
     <SafeAreaView style={styles.content}>
       <View style={styles.box}>

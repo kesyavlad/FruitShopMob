@@ -9,8 +9,12 @@
  */
 
 import React from 'react';
-import MainMenu from './src/pages/MainMenu';
+import RootNavigator from './src/components/RootNavigator';
 const App = () => {
-  return <MainMenu />;
+  return (
+    <>
+      <RootNavigator />
+    </>
+  );
 };
 export default App;
