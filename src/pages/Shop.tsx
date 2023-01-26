@@ -13,7 +13,7 @@ const Shop = () => {
   const route = useRoute();
   const {img, fruitName, price} = route.params || '';
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{contentStyle: {backgroundColor: '#fff'}}}>
       <Stack.Screen
         name="CardShop"
         children={() => (

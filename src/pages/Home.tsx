@@ -14,49 +14,50 @@ import SvgSearch from '../components/SvgComponents/SvgSearch';
 const Home = () => {
   const [input, setInput] = useState('');
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.logo}>
-          <Image
-            source={require('../assets/image/Logo.png')}
-            style={styles.image}
-          />
-          <Text style={styles.textHeader}>BestFruitShop</Text>
-        </View>
-        <Image source={require('../assets/image/User.png')} />
-      </View>
-      <View style={styles.searchInput}>
-        <TextInput
-          placeholder="Search"
-          placeholderTextColor="#C0C0C0"
-          style={styles.input}
-          autoCapitalize="none"
-          autoComplete="off"
-          onChangeText={newText => setInput(newText)}
-        />
-        <SvgSearch style={styles.svg} width={25} height={25} />
-      </View>
-      <ScrollView>
-        <View style={styles.list}>
-          {Fruits.filter(fruit =>
-            fruit.name.toLowerCase().includes(input.toLowerCase()),
-          ).map(fruit => (
-            <Card
-              key={fruit.id}
-              id={fruit.id}
-              img={fruit.image}
-              name={fruit.name}
-              price={fruit.price}
+    <SafeAreaView style={styles.colorWindow}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.logo}>
+            <Image
+              source={require('../assets/image/Logo.png')}
+              style={styles.image}
             />
-          ))}
+            <Text style={styles.textHeader}>BestFruitShop</Text>
+          </View>
+          <Image source={require('../assets/image/User.png')} />
         </View>
-      </ScrollView>
+        <View style={styles.searchInput}>
+          <TextInput
+            placeholder="Search"
+            placeholderTextColor="#C0C0C0"
+            style={styles.input}
+            autoCapitalize="none"
+            autoComplete="off"
+            onChangeText={newText => setInput(newText)}
+          />
+          <SvgSearch style={styles.svg} width={25} height={25} />
+        </View>
+        <ScrollView>
+          <View style={styles.list}>
+            {Fruits.filter(fruit =>
+              fruit.name.toLowerCase().includes(input.toLowerCase()),
+            ).map(fruit => (
+              <Card
+                key={fruit.id}
+                id={fruit.id}
+                img={fruit.image}
+                name={fruit.name}
+                price={fruit.price}
+              />
+            ))}
+          </View>
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'column',
     marginLeft: 30,
     marginRight: 30,
@@ -105,6 +106,9 @@ const styles = StyleSheet.create({
   },
   svg: {
     marginLeft: -50,
+  },
+  colorWindow: {
+    backgroundColor: '#fff',
   },
 });
 

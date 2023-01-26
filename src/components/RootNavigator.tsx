@@ -13,6 +13,7 @@ const RootNavigator = () => {
         <HomeStack.Navigator
           screenOptions={{
             headerShown: false,
+            contentStyle: {backgroundColor: '#fff'},
           }}>
           <HomeStack.Screen name="SignIn" component={SignIn} />
           <HomeStack.Screen name="Information" component={Information} />
