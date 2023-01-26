@@ -38,10 +38,12 @@ const Home = () => {
       </View>
       <ScrollView>
         <View style={styles.list}>
-          {Fruits.map(fruit => (
+          {Fruits.filter(fruit =>
+            fruit.name.toLowerCase().includes(input.toLowerCase()),
+          ).map(fruit => (
             <Card
-              id={fruit.id}
               key={fruit.id}
+              id={fruit.id}
               img={fruit.image}
               name={fruit.name}
               price={fruit.price}
