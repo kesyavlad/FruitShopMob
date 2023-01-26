@@ -10,7 +10,10 @@ const RootNavigator = () => {
   return (
     <>
       <NavigationContainer>
-        <HomeStack.Navigator screenOptions={{headerShown: false}}>
+        <HomeStack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}>
           <HomeStack.Screen name="SignIn" component={SignIn} />
           <HomeStack.Screen name="Information" component={Information} />
           <HomeStack.Screen name="MainMenu" component={MainMenu} />

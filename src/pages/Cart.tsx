@@ -13,9 +13,9 @@ import SvgEdit from '../components/SvgComponents/SvgEdit';
 import SvgTrash from '../components/SvgComponents/SvgTrash';
 const Cart = () => {
   const route = useRoute();
-  const {img, price, counter, fruitName} = route.params;
+  const {img, price, weight, fruitName} = route.params;
   const deliveryPrice = 7.51;
-  const result = price * counter;
+  const result = price * weight;
 
   return (
     <SafeAreaView style={styles.content}>
@@ -23,7 +23,7 @@ const Cart = () => {
         <View style={styles.boxCard}>
           <Image source={img} style={styles.image} />
           <View style={styles.boxPrice}>
-            <Text>{counter} Kg</Text>
+            <Text>{weight} Kg</Text>
             <Text>${price} US</Text>
           </View>
         </View>

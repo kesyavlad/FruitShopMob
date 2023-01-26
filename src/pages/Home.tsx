@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Image,
   SafeAreaView,
@@ -12,6 +12,7 @@ import Card from '../components/CardFruit';
 import {Fruits} from '../assets/infoFruit/Fruts';
 import SvgSearch from '../components/SvgComponents/SvgSearch';
 const Home = () => {
+  const [input, setInput] = useState('');
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -29,6 +30,9 @@ const Home = () => {
           placeholder="Search"
           placeholderTextColor="#C0C0C0"
           style={styles.input}
+          autoCapitalize="none"
+          autoComplete="off"
+          onChangeText={newText => setInput(newText)}
         />
         <SvgSearch style={styles.svg} width={25} height={25} />
       </View>

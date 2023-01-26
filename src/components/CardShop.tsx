@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {
   Image,
   SafeAreaView,
@@ -11,6 +11,8 @@ import CustomButton from './CustomButton';
 import SvgDown from './SvgComponents/SvgDown';
 import SvgUp from './SvgComponents/SvgUp';
 import {useNavigation} from '@react-navigation/native';
+import {useAppDispatch, useAppSelector} from '../Redux/hooks';
+import {backToOne, decrement, increment} from '../Redux/counterSlice';
 interface card {
   fruitName: string;
   price: string;
@@ -19,24 +21,17 @@ interface card {
 
 const CardShop: FC<card> = ({fruitName, price, img}) => {
   const navigation = useNavigation();
-  const [counter, setConter] = useState(1);
-  const clickDown = () => {
-    if (counter > 1) {
-      return setConter(counter - 1);
-    }
-    return setConter(1);
-  };
-  const clickUp = () => {
-    setConter(counter + 1);
-  };
+  const count = useAppSelector(state => state.counter.value);
+  const weight = count;
+  const dispatch = useAppDispatch();
   const addFruit = () => {
     navigation.navigate('Cart', {
-      counter,
+      weight,
       price,
       img,
       fruitName,
     });
-    setConter(1);
+    dispatch(backToOne(1));
   };
   return (
     <SafeAreaView style={styles.content}>
@@ -48,11 +43,11 @@ const CardShop: FC<card> = ({fruitName, price, img}) => {
             </View>
             <Text style={styles.name}>{fruitName}</Text>
             <View style={styles.boxKg}>
-              <TouchableOpacity onPress={() => clickDown()}>
+              <TouchableOpacity onPress={() => dispatch(decrement())}>
                 <SvgDown />
               </TouchableOpacity>
-              <Text style={styles.textKg}>{counter} kg</Text>
-              <TouchableOpacity onPress={() => clickUp()}>
+              <Text style={styles.textKg}>{count} kg</Text>
+              <TouchableOpacity onPress={() => dispatch(increment())}>
                 <SvgUp />
               </TouchableOpacity>
             </View>
