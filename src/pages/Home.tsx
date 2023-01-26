@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
   },
   colorWindow: {
     backgroundColor: '#fff',
+    height: '100%',
   },
 });
 
