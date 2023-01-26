@@ -11,8 +11,7 @@ const Stack = createNativeStackNavigator();
 
 const Shop = () => {
   const route = useRoute();
-  const {img, fruitName, price} = route.params;
-
+  const {img, fruitName, price} = route.params || '';
   return (
     <Stack.Navigator>
       <Stack.Screen

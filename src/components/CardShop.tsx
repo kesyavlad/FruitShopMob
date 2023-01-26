@@ -40,23 +40,29 @@ const CardShop: FC<card> = ({fruitName, price, img}) => {
   };
   return (
     <SafeAreaView style={styles.content}>
-      <View style={styles.imageBox}>
-        <View style={styles.image}>
-          <Image source={img} style={styles.image} />
-        </View>
-        <Text style={styles.name}>{fruitName}</Text>
-        <View style={styles.boxKg}>
-          <TouchableOpacity onPress={() => clickDown()}>
-            <SvgDown />
-          </TouchableOpacity>
-          <Text style={styles.textKg}>{counter} kg</Text>
-          <TouchableOpacity onPress={() => clickUp()}>
-            <SvgUp />
-          </TouchableOpacity>
-        </View>
-        <Text style={styles.price}>${price} US</Text>
-      </View>
-      <CustomButton title={'Add Cart'} func={addFruit} />
+      {fruitName ? (
+        <>
+          <View style={styles.imageBox}>
+            <View style={styles.image}>
+              <Image source={img} style={styles.image} />
+            </View>
+            <Text style={styles.name}>{fruitName}</Text>
+            <View style={styles.boxKg}>
+              <TouchableOpacity onPress={() => clickDown()}>
+                <SvgDown />
+              </TouchableOpacity>
+              <Text style={styles.textKg}>{counter} kg</Text>
+              <TouchableOpacity onPress={() => clickUp()}>
+                <SvgUp />
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.price}>${price} US</Text>
+          </View>
+          <CustomButton title={'Add Cart'} func={addFruit} />
+        </>
+      ) : (
+        <></>
+      )}
     </SafeAreaView>
   );
 };
