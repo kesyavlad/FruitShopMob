@@ -1,7 +1,16 @@
 import React from 'react';
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import CustomButton from '../components/CustomButton';
+import SvgEdit from '../components/SvgComponents/SvgEdit';
+import SvgTrash from '../components/SvgComponents/SvgTrash';
 const Cart = () => {
   const route = useRoute();
   const {img, price, counter, fruitName} = route.params;
@@ -9,25 +18,36 @@ const Cart = () => {
   const result = price * counter;
   return (
     <SafeAreaView style={styles.content}>
-      <View style={styles.boxCard}>
-        <Image source={img} style={styles.image} />
-        <View style={styles.boxPrice}>
-          <Text>{counter} Kg</Text>
-          <Text>${price} US</Text>
+      <View style={styles.box}>
+        <View style={styles.boxCard}>
+          <Image source={img} style={styles.image} />
+          <View style={styles.boxPrice}>
+            <Text>{counter} Kg</Text>
+            <Text>${price} US</Text>
+          </View>
+        </View>
+        <View style={styles.changeBox}>
+          <TouchableOpacity>
+            <SvgEdit />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <SvgTrash />
+          </TouchableOpacity>
         </View>
       </View>
+
       <View>
-        <View style={styles.boxTotal}>
+        <View style={styles.check}>
           <Text>{fruitName}</Text>
           <Text>${result} US</Text>
         </View>
-        <View style={styles.boxTotal}>
+        <View style={styles.check}>
           <Text>Delivery</Text>
           <Text>${deliveryPrice} US</Text>
         </View>
         <View style={styles.boxTotal}>
-          <Text>Total</Text>
-          <Text> ${result + deliveryPrice} US</Text>
+          <Text style={styles.totalText}>Total</Text>
+          <Text style={styles.totalText}> ${result + deliveryPrice} US</Text>
         </View>
       </View>
       <CustomButton title={'Checkout'} />
@@ -50,17 +70,37 @@ const styles = StyleSheet.create({
   boxCard: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    height: 450,
+    alignItems: 'center',
   },
   boxPrice: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: 100,
   },
+  check: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   boxTotal: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop: 18,
+    marginBottom: 44,
+  },
+  changeBox: {
+    flexDirection: 'row',
+    backgroundColor: '#C0C0C0',
+    height: 81,
+    borderRadius: 10,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  box: {
+    flexDirection: 'column',
+    height: 430,
+  },
+  totalText: {
+    fontSize: 22,
   },
 });
 export default Cart;

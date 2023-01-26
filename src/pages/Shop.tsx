@@ -5,13 +5,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CardShop from '../components/CardShop';
 import {useRoute} from '@react-navigation/native';
 import Cart from './Cart';
+import SvgBigSearch from '../components/SvgComponents/SvgBigSearch';
 
 const Stack = createNativeStackNavigator();
 
 const Shop = () => {
   const route = useRoute();
-
   const {img, fruitName, price} = route.params;
+
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -28,6 +29,7 @@ const Shop = () => {
               }}
             />
           ),
+          headerRight: () => <SvgBigSearch />,
         })}
       />
       <Stack.Screen
@@ -42,6 +44,7 @@ const Shop = () => {
               }}
             />
           ),
+          headerRight: () => <SvgBigSearch />,
         })}
       />
     </Stack.Navigator>
